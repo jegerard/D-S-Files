@@ -9,7 +9,7 @@ var dashboardApp = new Vue({
     "spent" : "3456700",
     "projected_spend": "4740500",
     "weekly_effort_target": 400,
-    tasks: {[
+    tasks: [
   {
     "id": 1,
     "title": "Build UI",
@@ -62,7 +62,7 @@ var dashboardApp = new Vue({
     "perc_complete": 80,
     "current_sprint" : false
   }
-]}
+]
   },
   computed: {
     days_left: function() { return 31 }
