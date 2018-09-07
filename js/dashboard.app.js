@@ -70,6 +70,10 @@ var dashboardApp = new Vue({
   methods: {
     pretty_date: function(d) {
       return moment(d).format('l')
-    }
+    },
+    log (msg) {
+      alert(msg)
+    },
   }
+
 })
