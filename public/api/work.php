@@ -3,6 +3,7 @@ require '../../app/common.php';
 
 if ($_SERVER['REQUEST_METHOD']=='POST'){
   REQUIRE 'workPost.php';
+  exit;
 }
 
 $taskId = intval($_GET['taskId'] ?? 0);
