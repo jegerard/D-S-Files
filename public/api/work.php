@@ -1,7 +1,7 @@
 <?php
 require '../../app/common.php';
 
-if ($_SERVER['REQUEST_METHOD']=='POST'){}
+if ($_SERVER['REQUEST_METHOD']=='POST'){
   REQUIRE 'workPost.php';
 }
 
