@@ -35,6 +35,7 @@ class Work
       $this->hours,
       $this->completion_estimate
     ]);
+    $this->id=$db->lastInsertId();
   }
   public static function getWorkByTaskId(int $taskId) {
     // 1. Connect to the database
