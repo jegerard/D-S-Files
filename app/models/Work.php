@@ -28,6 +28,13 @@ class Work
     // 2. Prepare the query
     $sql = 'INSERT INTO Work (task_id, team_id, start_date, hours, completion_estimate ) VALUES(?,?,?,?,?)';
     $statement = $db->prepare($sql);
+    $success=$statement->execute([
+      $this->task_id,
+      $this->team_id,
+      $this->start,
+      $this->hours,
+      $this->completion_estimate
+    ]);
   }
   public static function getWorkByTaskId(int $taskId) {
     // 1. Connect to the database
