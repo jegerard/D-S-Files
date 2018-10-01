@@ -40,7 +40,7 @@ class Work
       $workItem =  new Work($row);
       array_push($arr, $workItem);
     }
-    // 4.b. return the array of work objects
     return $arr;
   }
+
 }
