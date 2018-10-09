@@ -18,7 +18,7 @@ class Work
     $hours = floor($this->hours);
     $mins = intval(($this->hours - $hours) * 60); // Take advantage of one decimal place
     $interval = 'PT'. ($hours ? $hours.'H' : '') . ($mins ? $mins.'M' : '');
-    $date = new DateTime($this->start);
+    $date = new DateTime($this->start_date);
     $date->add(new DateInterval($interval));
     $this->stop = $date->format('Y-m-d H:i:s');
     $this->completion_estimate = intval($row['completion_estimate']);
