@@ -4,7 +4,7 @@ class Work
   public $id;
   public $task_id;
   public $team_id;
-  public $start;  //'YYYY-MM-DD'
+  public $start_date;  //'YYYY-MM-DD'
   public $stop;   //'YYYY-MM-DD', needs to be calculated
   public $hours;
   public $completion_estimate;
@@ -12,7 +12,7 @@ class Work
     $this->id = isset($row['id']) ? intval($row['id']) : null;
     $this->task_id = intval($row['task_id']);
     $this->team_id = intval($row['team_id']);
-    $this->start = $row['start_date'];
+    $this->start_date = $row['start_date'];
     $this->hours = floatval($row['hours']);
     // Calculate stop date
     $hours = floor($this->hours);
@@ -31,7 +31,7 @@ class Work
     $success = $statement->execute([
       $this->task_id,
       $this->team_id,
-      $this->start,
+      $this->start_date,
       $this->hours,
       $this->completion_estimate
     ]);
