@@ -23,15 +23,15 @@ class Work
     $this->stop = $date->format('Y-m-d H:i:s');
     $this->completion_estimate = intval($row['completion_estimate']);
   }
-  public static function getWorkByTaskId(int $taskId) {
+  public static function getWorkByTaskId() {
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     // 2. Prepare the query
-    $sql = 'SELECT * FROM Work WHERE task_id = ?';
+    $sql = 'SELECT * FROM Work';
     $statement = $db->prepare($sql);
     // 3. Run the query
     $success = $statement->execute(
-        [$taskId]
+        
     );
     // 4. Handle the results
     $arr = [];
