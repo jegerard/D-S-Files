@@ -41,15 +41,14 @@ class Work
     }
     $this->id = $db->lastInsertId();
   }
-  public static function getWorkByTaskId(int $taskId) {
+  public static function getWorkByTaskId() {
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     // 2. Prepare the query
-    $sql = 'SELECT * FROM Work WHERE task_id = ?';
+    $sql = 'SELECT * FROM Work';
     $statement = $db->prepare($sql);
     // 3. Run the query
     $success = $statement->execute(
-        [$taskId]
     );
     // 4. Handle the results
     $arr = [];
