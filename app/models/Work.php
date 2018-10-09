@@ -9,7 +9,7 @@ class Work
   public $hours;
   public $completion_estimate;
   public function __construct($row) {
-    $this->id = intval($row['id']);
+    $this->id = isset($row['id']) ? intval($row['id']) : null;
     $this->task_id = intval($row['task_id']);
     $this->team_id = intval($row['team_id']);
     $this->start = $row['start_date'];
@@ -31,7 +31,7 @@ class Work
     $statement = $db->prepare($sql);
     // 3. Run the query
     $success = $statement->execute(
-        
+
     );
     // 4. Handle the results
     $arr = [];
