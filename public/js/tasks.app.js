@@ -1,4 +1,3 @@
-es (113 sloc)  3.13 KB
 var tasksApp = new Vue({
   el: '#taskMain',
   data: {
