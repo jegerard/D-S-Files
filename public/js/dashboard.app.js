@@ -56,8 +56,8 @@ var dashboardApp = new Vue({
       }
     },
     fetchTasks () {
-      fetch('https://raw.githubusercontent.com/jegerard/D-S-Files/master/app/data/p1-tasks.json')
-      .then(function(response) {return response.json()})
+      fetch('api/workHours.php?projectID=' + pid)
+      .then( response => response.json() )
       // ^ This is the same as .then( function(response) {return response.json()} )
       .then( json => {dashboardApp.tasks = json} )
       .catch( err => {
@@ -65,8 +65,8 @@ var dashboardApp = new Vue({
         console.log(err);
       })
     },
-    fetchProject () {
-      fetch('https://raw.githubusercontent.com/jegerard/D-S-Files/master/app/data/project1.json')
+    fetchProject ('api/workHours.php?projectID=' + pid) {
+      fetch('')
       .then( response => response.json() )
       .then( json => {dashboardApp.project = json} )
       .catch( err => {
