@@ -16,6 +16,8 @@ class WorkHoursReport
 
       $success = $statement -> execute([$projectId]);
 
-        $this->id=$db->lastInsertId();
+      $arr = $statement -> fetchAll(PDO::FETCH_ASSOC);
+
+      return $arr;
   }
 }
