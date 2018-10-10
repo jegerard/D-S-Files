@@ -1,7 +1,7 @@
 <?php
 class WorkHoursReport
 {
-  public static function fetchByProjectID($projectId){
+  public static function fetchByProjectID(int $projectId){
 
       $db = new PDO(DB_SERVER, DB_USER, DB_PW);
       $sql = 'SELECT DATE (start_date) AS date,
