@@ -29,7 +29,11 @@ class Work
     $sql = 'INSERT INTO Work (team_id, task_id, start_date, hours, completion_estimate) VALUES(?,?,?,?,?)';
     $statement = $db->prepare($sql);
     $success=$statement->execute([
-      $this->comment
+      $this->team_id
+      $this->task_id
+      $this->start
+      $this->hours
+      $this->completion_estimate
     ]);
     $this->id=$db->lastInsertId();
   }
