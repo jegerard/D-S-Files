@@ -56,7 +56,7 @@ var dashboardApp = new Vue({
       }
     },
     fetchTasks () {
-      fetch('app/data/p1-tasks.json')
+      fetch('data/p1-tasks.json')
       .then( response => response.json() )
       // ^ This is the same as .then( function(response) {return response.json()} )
       .then( json => {dashboardApp.tasks = json} )
@@ -66,7 +66,7 @@ var dashboardApp = new Vue({
       })
     },
     fetchProject () {
-      fetch('app/data/project1.json')
+      fetch('data/project1.json')
       .then( response => response.json() )
       .then( json => {dashboardApp.project = json} )
       .catch( err => {
