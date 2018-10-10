@@ -57,7 +57,7 @@ var dashboardApp = new Vue({
     },
     fetchTasks () {
       fetch('https://raw.githubusercontent.com/jegerard/D-S-Files/master/app/data/p1-tasks.json')
-      .then( response => response.json() )
+      .then(function(response) {return response.json()})
       // ^ This is the same as .then( function(response) {return response.json()} )
       .then( json => {dashboardApp.tasks = json} )
       .catch( err => {
