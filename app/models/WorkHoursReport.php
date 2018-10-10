@@ -12,7 +12,7 @@ class WorkHoursReport
       GROUP BY DATE (start_date)
       ORDER BY date';
 
-      statement = $db -> prepare($sql);
+      $statement = $db -> prepare($sql);
 
       $success = $statement -> execute([$projectId]);
 
