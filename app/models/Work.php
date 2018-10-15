@@ -23,31 +23,29 @@ class Work
     $this->stop = $date->format('Y-m-d H:i:s');
     $this->completion_estimate = intval($row['completion_estimate']);
   }
-  public function create(){
+  public function create() {
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-    // 2. Prepare the query
-    $sql = 'INSERT INTO Work (team_id, task_id, start_date, hours, completion_estimate) VALUES(?,?,?,?,?)';
+    $sql = 'INSERT Work (task_id, team_id, start_date, hours, completion_estimate)
+            VALUES (?, ?, ?, ?, ?)';
     $statement = $db->prepare($sql);
-    $success=$statement->execute([
-      $this->team_id,
+    $success = $statement->execute([
       $this->task_id,
+      $this->team_id,
       $this->start,
       $this->hours,
       $this->completion_estimate
-
-    ]
-    );
-    $this->id=$db->lastInsertId();
+    ]);
+    $this->id = $db->lastInsertId();
   }
-  public static function getWorkByTaskId() {
+  public static function getWorkByTaskId(int $taskId) {
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
     // 2. Prepare the query
-    $sql = 'SELECT * FROM Work';
+    $sql = 'SELECT * FROM Work WHERE task_id = ?';
     $statement = $db->prepare($sql);
     // 3. Run the query
     $success = $statement->execute(
-
+        [$taskId]
     );
     // 4. Handle the results
     $arr = [];
